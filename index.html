@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+
+<head>
+    <title> Taiwan Seven Eleven </title>
+    <meta name="title" content="Taiwan Seven Eleven">
+    <meta name="description" content="Taiwan Seven Eleven">
+    <meta name="author" content="Julia Janicki, Daisy Chung">
+    <meta name="keywords" content="Seven Eleven, 7-Eleven, 7-11, Taiwan, data, data visualization">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png" />
+
+    <style>
+        /* general */
+
+        body {
+            font-family: 'Libre Franklin', sans-serif;
+            background-color: #fdfbf9;
+            overflow-x: hidden;
+        }
+
+
+        svg {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .title {
+            font-weight: 700;
+            color: #a6611a;
+        }
+
+        .section_title {
+            text-align: left;
+        }
+
+        .scene p {
+            background-color: none;
+        }
+
+        .article-wrapper p {
+            padding: 0;
+            font-size: 18px;
+            line-height: 24px;
+            color: #333;
+        }
+
+        .article-wrapper {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .scroller {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .scroll-graphic {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+
+        .scroll-graphic .chart-wrapper .chart {
+            height: 85vh;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scene {
+            transform: translateZ(0);
+            z-index: 0;
+            min-height: 100vh;
+            transition: opacity 0.3s ease;
+        }
+
+        .scene1 {
+            margin-top: -25vh;
+        }
+
+        .article-wrapper.scroller-text {
+            max-width: 350px;
+            margin-left: 20px;
+            padding: 5px 20px;
+            background-color: hsla(0, 0%, 100%, 0.85);
+            box-shadow: 1px 1px 5px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        #logo {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            z-index: 10;
+        }
+
+        @media only screen and (max-width: 660px) {
+            .scene1 {
+                margin-top: -15vh;
+            }
+
+            .article-wrapper.scroller-text {
+                max-width: 90vw;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: hsla(0, 0%, 100%, 0.75);
+            }
+
+            .scene {
+                min-height: 100vh;
+            }
+
+            .article-wrapper {
+                padding: 0 20px;
+            }
+
+            .article-wrapper p {
+                padding: 0;
+                font-size: 16px;
+                line-height: 20px;
+                color: #333;
+            }
+
+            .section_title {
+                font-size: 22px;
+            }
+
+            #logo {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div id="language">
+        <p><a href="https://taiwandatastories.com/taiwan-olympic-medals/">EN</a> / <a
+                href="https://taiwandatastories.com/zh/taiwan-olympic-medals/">中文</a></p>
+    </div>
+    <a href="http://taiwandatastories.com/" target="_blank">
+        <img id="logo" src="./img/favicon.png" /></a>
+    <div class="scroller" id="scroller">
+        <div class="scroll-graphic">
+            <div class="chart-wrapper fullscreen-wrapper">
+                <div class="chart">
+                    <div id="chart1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-scenes">
+            <div class="scene scene1" id="scrollama-0">
+                <div class="article-wrapper scroller-text">
+                    <h2 class="section_title">Taiwan's 36 Olympic medals</h2>
+                    <p>
+                        Since its first win in 1960, Taiwan has won a total of 36 medals
+                        at the Olympic Games. Though it may not seem like a lot, it hasn't
+                        always been easy for Taiwanese athletes to compete in the Olympics
+                        due to pressure from the People's Republic of China. Because of
+                        long-standing tension over its sovereignty, Taiwan's athletes have
+                        competed under the name “Chinese Taipei” since 1984.
+                    </p>
+                </div>
+            </div>
+            <div class="scene" id="scrollama-1">
+                <div class="article-wrapper scroller-text">
+                    <h2 class="section_title">Medals by year</h2>
+                    <p>
+                        Taiwanese athletes won their first Olympic medal in 1960, a silver
+                        in the men's decathlon event in Rome. It wasn't until the 2004
+                        games in Athens that Taiwan won its first gold medals—one each in
+                        both men's and women's Taekwondo. Bringing home a total of 12
+                        medals, the recent 2020 Tokyo Olympics were Taiwan's most
+                        successful games to date.
+                    </p>
+                </div>
+            </div>
+            <div class="scene" id="scrollama-2">
+                <div class="article-wrapper scroller-text">
+                    <h2 class="section_title">Medals by sport</h2>
+                    <p>
+                        Taiwanese athletes have excelled most in weightlifting and
+                        Taekwondo at the Olympics. Though badminton is a popular sport in
+                        Taiwan, it has been traditionally dominated by China. In the 2020
+                        Tokyo Olympics, however, Taiwanese badminton duo Lee Yang (李洋)
+                        and Wang Chi-lin (王齊麟) took home Taiwan's first gold medals in
+                        the sport.
+                    </p>
+                </div>
+            </div>
+            <div class="scene" id="scrollama-3">
+                <div class="article-wrapper scroller-text">
+                    <h2 class="section_title">Medals by gender</h2>
+                    <p>
+                        Overall, Taiwanese women have won more Olympic medals than men.
+                        This includes the recent victory of the Badminton World
+                        Federation's number one female badminton athlete Tai Tzu-ying
+                        (戴資穎), who earned a silver medal at the 2020 Tokyo Olympics in
+                        the women's singles competition.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/intersection-observer"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="./js/DrawSVGPlugin.js"></script>
+    <script src="./js/MotionPathPlugin.js"></script>
+    <script src="./data/borders.js"></script>
+    <script src="./data/rivers.js"></script>
+    <script src="./data/stations.js"></script>
+    <script src="./data/lines.js"></script>
+    <script>
+
+        const windowWidth = $(window).width();
+        const windowHeight = $(window).height();
+
+        $(window).resize(function () {
+            if (windowWidth != $(window).width() || windowHeight != $(window).height()) {
+                location.reload();
+                return;
+            }
+        });
+
+        var scrolly = d3.selectAll(".scroller");
+        var figure = d3.selectAll(".chart");
+        var step = d3.selectAll(".scene");
+
+        // initialize the scrollama
+        var scroller = scrollama();
+        let width = figure.node().getBoundingClientRect().width;
+        let height = figure.node().getBoundingClientRect().height;
+
+        if (windowWidth <= 660) {
+            height = width;
+        }
+
+        // scrollama event handlers
+        function handleStepEnter(response) {
+            if (response.index == 0) {
+                console.log("step1")
+            }
+
+        }
+
+        function init() {
+            scroller
+                .setup({
+                    step: ".scene",
+                    offset: 0.85,
+                    debug: false,
+                    progress: false,
+                })
+                .onStepEnter(handleStepEnter);
+        }
+
+        init();
+
+
+
+
+        // Map and projection
+        const projection = d3
+            .geoMercator() // 麥卡托投影法
+            .center([121.6, 25.12]) // 中心點(經緯度)
+            .scale(100000) // 放大倍率
+            .translate([width / 2, height / 2.5]);
+
+
+
+        const svg = d3
+            .select("#chart1")
+            .append("svg")
+            .attr("id", "svg")
+            .attr("width", width)
+            .attr("height", height)
+
+        svg
+            .append("rect")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("width", width)
+            .attr("height", height)
+            .attr("fill", "#e6e6e6")
+
+
+        const path = d3.geoPath().projection(projection);
+        const colorScale = d3.scaleOrdinal().domain(["木柵線", "淡水線", "新店線", "中和線", "南港線", "板橋線", "小南門線", "碧潭支線", "蘆洲線", "信義線", "新莊線", "松山線"]).range(["#9e652e", "#cb2c30", "#007749", "#f0d943", "#005eb8", "#005eb8", "#cedc00", "#cedc00", "#f0d943", "#cb2c30", "#f0d943", "#007749"])
+
+        //     .domain(["淡水線", , "蘆洲線", "板橋線", "中和線", "新店線", "碧潭支線", "新莊線", "木柵線", "南港線", "信義線", "松山線"]).range(["#cb2c30", "#ffa300", "#ffa300", "#f0d943", "#007749", "", "", "#9e652e", "#005eb8", "#cb2c30", "#9e652e"]);
+
+        // ["木柵線", "淡水線", "新店線",]
+        // ["#9e652e", "#cb2c30", "#007749"]
+
+        svg.append("g").attr("id", "borders")
+            .selectAll("path")
+            .data(borders.features)
+            .join("path")
+            .attr("fill", "#252525")
+            .attr("d", path)
+            .style("stroke", "#fff")
+
+        svg.append("g").attr("id", "linesG")
+            .selectAll("path.line")
+            .data(lines.features)
+            .join("path")
+            .attr("class", "line")
+            .attr("id", d => `line${d.properties.OBJECTID}`)
+            .attr("fill", "none")
+            .attr("d", path)
+            .attr("stroke", d => colorScale(d.properties.RouteName))
+            .attr("stroke-width", 3)
+            .on("mouseover", (e, d) => console.log(d.properties.OBJECTID))
+
+        svg.append("g").attr("id", "circlesG")
+            .selectAll("path")
+            .data(stations.features)
+            .join("circle")
+            .attr("r", 3)
+            .attr("fill", "white")
+            .attr("stroke", "black")
+            .attr("transform", function (d) {
+                return "translate(" + projection(d.geometry.coordinates) + ")";
+            })
+
+        const main = gsap.timeline(
+            // {
+            //     scrollTrigger: {
+            //         trigger: "#scrollama-1",
+            //         scrub: true,
+            //         // start: "50px 10%", //first trigger, second scroller
+            //         // end: "1900px 20%",
+            //     }
+            // }
+        )
+            .from("#line8", { drawSVG: 0, duration: 4 }, 0)
+            .from("#line1", { drawSVG: 0, duration: 4 }, 4)
+            .from("#line7", { drawSVG: 0, duration: 4 }, 8)
+            .from("#line10", { drawSVG: 0, duration: 4 }, 12)
+            .from("#line0", { drawSVG: 0, duration: 4 }, 16)
+            .from("#line3", { drawSVG: 0, duration: 4 }, 20)
+            .from("#line6", { drawSVG: 0, duration: 4 }, 24)
+            .from("#line11", { drawSVG: 0, duration: 4 }, 28)
+            .from("#line4", { drawSVG: 0, duration: 4 }, 32)
+            .from("#line9", { drawSVG: 0, duration: 4 }, 32)
+            .from("#line18", { drawSVG: 0, duration: 4 }, 36)
+            .from("#line5", { drawSVG: 0, duration: 4 }, 40)
+            // .to(".circle0", {
+            //     motionPath: {
+            //         path: "#line1",
+            //         align: "#line1",
+            //         alignOrigin: [0.5, 0.5]
+            //     }, duration: 10
+            // }, 0)
+
+
+
+    </script>
+</body>
